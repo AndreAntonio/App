@@ -11,14 +11,16 @@ import UIKit
 class AppTableTableViewController: UITableViewController {
     
     var app1 = App(imagem: "WhatsApp", nome: "WhatsApp", categoria: "Social")
-    var app2 = App(imagem:"Facebook", nome:"Facebook",  categoria:"Social")
-    var app3 = App(imagem:"Itau", nome:"Itau",  categoria:"Financas")
+    var app2 = App(imagem:"Itau", nome:"Itau",  categoria:"Financas")
+    var app3 = App(imagem: "Spotify", nome: "Spotify", categoria: "Musica")
+    var app4 = App(imagem:"Facebook", nome:"Facebook",  categoria:"Social")
     
     
     var apps = [App]()
+    var aux = [App]()
     
 //    @IBAction func salvarMudancas (segue:UIStoryboardSegue) {
-//        
+//
 //    }
 
     override func viewDidLoad() {
@@ -27,12 +29,16 @@ class AppTableTableViewController: UITableViewController {
         self.tableView.isEditing = false
         self.navigationItem.rightBarButtonItem = self.editButtonItem
 
-        
-
         apps.append(app1)
         apps.append(app2)
         apps.append(app3)
-        
+        apps.append(app4)
+
+        //Vetor Auxiliar
+        for app in apps{
+            aux.append(app)
+            print(app.nome)
+        }
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -82,13 +88,6 @@ class AppTableTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "app", for: indexPath)
-        var aux = [App]()
-        
-        for app in apps{
-            
-            aux.append(app)
-    
-        }
         
         let cont = aux.count
         
@@ -100,11 +99,11 @@ class AppTableTableViewController: UITableViewController {
                 cell.detailTextLabel?.text = aux[i].categoria
                 cell.imageView?.image = UIImage(named: aux[i].imagem)
                 aux.remove(at: i)
+                print("i \(i)")
+                print("Index Path \(indexPath)")
                 return cell
             }
         }
-            
-    
     
         return cell
     }
