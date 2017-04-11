@@ -28,6 +28,7 @@ class AppTableTableViewController: UITableViewController {
         apps.append(App(imagem: "Spotify", nome: "Spotify", categoria: "Musica"))
         apps.append(App(imagem:"Facebook", nome:"Facebook",  categoria:"Social"))
         apps.append(App(imagem:"Youtube", nome:"Youtube",  categoria:"Midia"))
+        apps.append(App(imagem:"FaceTune", nome:"FaceTune", categoria:"Manipulação de Imagem"))
         
         //Vetor Auxiliar
         for app in apps{
